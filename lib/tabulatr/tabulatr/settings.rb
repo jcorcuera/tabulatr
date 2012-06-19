@@ -70,7 +70,7 @@ class Tabulatr
     :filter_controls_label => 'Filter Controls: ',    # Text to show in front of the filter controls select
 
     # which controls to be rendered above and below the tabel and in which order
-    :before_table_controls => [:submit, :reset, :paginator, :batch_actions, :select_controls, :info_text],
+    :before_table_controls => [:submit, :reset, :paginator, :batch_actions, :select_controls, :info_text, :filter_controls],
     :after_table_controls => [],
 
     # whih selecting controls to render in which order
@@ -99,6 +99,7 @@ class Tabulatr
     :reset => false,                   # true to render a reset button. Only reasonable in 'stateful' case
     :action => nil,                    # target action of the wrapping form if applicable
     :batch_actions => false,           # :name => value hash of batch action stuff
+    :filter_controls => false,          # :name => value hash of filter controls stuff
     :translate => false,               # call t() for all 'labels' and stuff, possible values are true/:translate or :localize
     :row_classes => ['odd', 'even'],   # class for the trs
     :footer_content => false           # if given, add a <%= content_for <footer_content> %> before the </table>
