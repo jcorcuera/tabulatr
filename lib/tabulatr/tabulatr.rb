@@ -139,6 +139,7 @@ class Tabulatr
         :value => t(@table_options[:reset_label])) if @stateful
     when :batch_actions then render_batch_actions if @table_options[:batch_actions]
     when :select_controls then render_select_controls if @table_options[:selectable]
+    when :filter_controls then render_filter_controls if @table_options[:filter_controls]
     when :info_text
       make_tag(:div, :class => @table_options[:info_text_class]) do
         concat(format(t(@table_options[:info_text]),
@@ -271,11 +272,11 @@ private
       make_tag(:img, :src => psrc)
     end
   end
-  
+
   def self.config(&block)
     yield(self)
   end
-  
+
 end
 
 Dir[File.join(File.dirname(__FILE__), "tabulatr", "*.rb")].each do |file|
