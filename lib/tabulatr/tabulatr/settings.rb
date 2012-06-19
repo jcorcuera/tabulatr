@@ -43,6 +43,7 @@ class Tabulatr
     :control_div_class_after => 'table-controls',   # class of the lower div containing the paging and batch action controls
     :paginator_div_class => 'paginator',            # class of the div containing the paging controls
     :batch_actions_div_class => 'batch-actions',    # class of the div containing the batch action controls
+    :filter_controls_div_class => 'filter-controls',# class of the div containing the filter controls
     :select_controls_div_class => 'check-controls',  # class of the div containing the check controls
     :submit_class => 'submit-table',                # class of submit button
     :pagesize_select_class => 'pagesize_select',    # class of the pagesize select element
@@ -66,6 +67,7 @@ class Tabulatr
     :unselect_filtered_label => 'Unselect filtered',# Text on the unselect filtered button
     :reset_label => 'Reset',                        # Text on the reset button
     :info_text => "Showing %1$d, total %2$d, selected %3$d, matching %4$d",
+    :filter_controls_label => 'Filter Controls: ',    # Text to show in front of the filter controls select
 
     # which controls to be rendered above and below the tabel and in which order
     :before_table_controls => [:submit, :reset, :paginator, :batch_actions, :select_controls, :info_text],
@@ -215,7 +217,7 @@ class Tabulatr
     COLUMN_PRESETS
   end
   def column_presets(n=nil) self.class.column_presets(n) end
-  def column_preset_for(name)  
+  def column_preset_for(name)
     h = COLUMN_PRESETS[name.to_sym]
     return {} unless h
     return h if h.is_a? Hash
