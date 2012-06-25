@@ -9,7 +9,7 @@ class Tabulatr
         iname = "#{@classname}#{TABLE_FORM_OPTIONS[:filter_postfix]}[#{name}]"
         value = @filters[name]
         make_tag(:select, :name => iname) do
-          concat("<option value=\"\">#{options[:prompt]}</option>")
+          concat("<option value=\" \">#{options[:prompt]}</option>")
           t = options_for_select(options[:values])
           concat(t.sub("value=\"#{value}\"", "value=\"#{value}\" selected=\"selected\""))
         end # </select>
